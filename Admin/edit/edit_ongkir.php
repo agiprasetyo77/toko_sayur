@@ -4,10 +4,10 @@ $username = "root";
 $password = "";
 $db = "mlijo";
 $koneksi = mysqli_connect($server, $username, $password, $db);
-if (isset($_POST["simpann"])) {
+if (isset($_POST["simpan1"])) {
     $id_ongkir = $_POST["id_ongkir"];
     // var_dump($id_ongkir);
-    $nama_jalan = $_POST['nama_jalan'];
+    $nama_jalan = $_POST['nama_ongkir'];
     $tarif = $_POST['tarif'];
 
     $query = "UPDATE ongkir SET 
@@ -25,6 +25,3 @@ if (isset($_POST["simpann"])) {
         echo "Error: " . mysqli_error($koneksi);
     }
 }
-
-
-?>

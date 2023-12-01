@@ -10,18 +10,6 @@
         $ongkir[] = $pecah;
     }
 
-    if (isset($_POST["simpan"])) {
-        $nama_jalan = $_POST['jalan'];
-        $tarif = $_POST['tariff'];
-
-        $koneksi->query("INSERT INTO ongkir (nama_jalan,tarif) VALUES ('$nama_jalan','$tarif') ");
-
-
-        echo "<script>alert('data berhasil disimpan');</script>";
-        echo "<script>location='index.php?ongkir';</script>";
-
-    }
-
     ?>
 
     <div class="row">
@@ -31,8 +19,7 @@
                     <strong class="card-title">Data Ongkir</strong>
                 </div>
                 <div class="card-body">
-                    <a type="button" name="tambah" class="btn btn-sm btn-primary mb-3 ml-3" data-toggle="modal"
-                        data-target="#tambahModal" style="color: white;">
+                    <a type="button" name="tambah" class="btn btn-sm btn-primary mb-3 ml-3" data-toggle="modal" data-target="#tambahModal" style="color: white;">
                         <i class="fa fa-plus"></i>Tambah Data
                     </a>
 
@@ -47,7 +34,7 @@
                         </thead>
                         <tbody>
 
-                            <?php foreach ($ongkir as $key => $value): ?>
+                            <?php foreach ($ongkir as $key => $value) : ?>
 
                                 <tr>
                                     <td width="50">
@@ -60,14 +47,12 @@
                                         <?= $value['tarif']; ?>
                                     </td>
                                     <td class="text-center" width="150">
-                                        <button type="button" name="edit" class="btn btn-primary btn-sm edit-btn"
-                                            data-toggle="modal" data-target="#editModal">
+                                        <button type="button" name="edit" class="btn btn-primary btn-sm edit-btn" data-toggle="modal" data-target="#editModal<?= $value['id_ongkir']; ?>">
                                             <i class="fa fa-edit"></i> Edit
                                         </button>
 
 
-                                        <a href="index.php?hapus_ongkir=<?php echo $value['id_ongkir']; ?>"
-                                            class="btn btn-sm btn-danger">
+                                        <a href="index.php?hapus_ongkir=<?php echo $value['id_ongkir']; ?>" class="btn btn-sm btn-danger">
                                             <i class="fa fa-trash"></i>Hapus
                                         </a>
                                     </td>
@@ -83,8 +68,7 @@
 </div>
 
 <!-- tambah ongkir -->
-<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document" style="margin-left: 30%;">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,7 +78,7 @@
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <form method="POST" action="index.php?ongkir">
+                    <form method="POST" action="tambah/tambah_ongkir.php">
                         <div class="from-group row">
                             <label class="col-sm-3 col-form-label">Nama Jalan</label>
                             <div class="col-sm-9">
@@ -116,40 +100,45 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 <button type="submit" name="simpan" class="btn btn-primary">Confirm</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
 
 <!-- edit ongkir -->
 <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data Ongkir</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Form untuk mengedit detail ongkir -->
-                <form id="editForm">
-                    <input type="hidden" id="editId" name="id_ongkir" value="">
-                    <label for="editNama">Nama Ongkir:</label>
-                    <input type="text" class="form-control" id="editNama" name="nama_ongkir" value="">
-                    <label for="editTarif">Tarif:</label>
-                    <input type="text" class="form-control" id="editTarif" name="tarif" value="">
-                    <!-- Tambahkan input lain sesuai kebutuhan -->
-                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                </form>
+<?php foreach ($ongkir as $key => $value) : ?>
+    <div class="modal fade" id="editModal<?= $value['id_ongkir']; ?>" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Data Ongkir</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Form untuk mengedit detail ongkir -->
+                    <form action="edit/edit_ongkir.php" method="POST">
+                        <label for="editNama">Nama Jalan:</label>
+                        <input type="text" class="form-control" id="editNama" name="nama_ongkir" value="<?= $value['nama_jalan']; ?>">
+                        <label for="editTarif">Tarif:</label>
+                        <input type="text" class="form-control" id="editTarif" name="tarif" value="<?= $value['tarif']; ?>">
+
+                        <input type="hidden" name="id_ongkir" value="<?= $value['id_ongkir']; ?>">
+                        <!-- Tambahkan input lain sesuai kebutuhan -->
+                        <button type="submit" name="simpan1" class="btn btn-primary">Simpan Perubahan</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php endforeach; ?>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.edit-btn').on('click', function () {
+<!-- <script>
+    $(document).ready(function() {
+        $('.edit-btn').on('click', function() {
             var idOngkir = $(this).data('id');
             var namaOngkir = $(this).data('nama');
             var tarifOngkir = $(this).data('tarif');
@@ -162,7 +151,7 @@
         });
 
         // Handle form submission
-        $('#editForm').on('submit', function (e) {
+        $('#editForm').on('submit', function(e) {
             e.preventDefault();
 
             // Mengirim data formulir menggunakan Ajax
@@ -170,7 +159,7 @@
                 url: 'update_ongkir.php',
                 type: 'POST',
                 data: $(this).serialize(),
-                success: function (response) {
+                success: function(response) {
                     // Menangani respons setelah ongkir diperbarui
                     console.log(response);
                     // Menutup modal
@@ -179,4 +168,4 @@
             });
         });
     });
-</script>
+</script> -->
