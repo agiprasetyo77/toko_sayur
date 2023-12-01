@@ -109,24 +109,25 @@ while ($pecah = $ambil->fetch_assoc()) {
                             </div>
                         </div>
                         <div class="card-footer">
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Status</label>
-                                <div class="col-sm-9">
-                                    <select name="status" class="form-control">
-                                        <option selected disabled>Pilih Status</option>
-                                        <option value="barang dikirim">Barang dikirim</option>
-                                        <option value="pengiriman dibatalkan">Pengiriman dibatalkan</option>
-                                    </select>
+                            <!-- <form method="post">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select name="status" class="form-control">
+                                            <option selected disabled>Pilih Status</option>
+                                            <option value="barang dikirim">Barang dikirim</option>
+                                            <option value="pengiriman dibatalkan">Pengiriman dibatalkan</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
+                            </form> -->
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <button type="submit" name="simpan" class="btn btn-primary">Confirm</button>
+                    </form>
                 </div>
             </div>
         </div>

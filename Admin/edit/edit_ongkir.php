@@ -6,7 +6,6 @@ $db = "mlijo";
 $koneksi = mysqli_connect($server, $username, $password, $db);
 if (isset($_POST["simpan1"])) {
     $id_ongkir = $_POST["id_ongkir"];
-    // var_dump($id_ongkir);
     $nama_jalan = $_POST['nama_ongkir'];
     $tarif = $_POST['tarif'];
 
@@ -14,7 +13,6 @@ if (isset($_POST["simpan1"])) {
             nama_jalan = '" . $nama_jalan . "', 
             tarif = '" . $tarif . "' 
             WHERE id_ongkir = '" . $id_ongkir . "'";
-
 
     $result = mysqli_query($koneksi, $query);
 
