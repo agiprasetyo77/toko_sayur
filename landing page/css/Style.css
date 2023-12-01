@@ -1,0 +1,188 @@
+.navbar-brand{
+    font-family: 'Lobster', cursive;
+}
+.breadcrumb-item{
+    margin-top: -20px;
+    color: white;
+    background: color #b2d9b2;
+}
+.carousel-item::before{
+    content: "";
+    position: absolute;
+    display: block;
+    
+}
+.carousel-item{
+    height: 45rem;
+    background-size: cover;
+}
+.carousel-caption{
+    position: absolute;
+    top: 40%;
+}
+.carousel-item .display-1{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.carousel-item .display-6{
+    font-size: 20px;
+}
+.navbar-brand{
+    font-family: 'Lobster', cursive;
+}
+.block .about{
+    height: 30rem;
+    margin: 0;
+    padding-top: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    color: black;
+    background-color: #b2d9b2;
+    justify-content: center;
+    text-align: start;
+}
+.block .title{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.block .about2{
+    height: 30rem;
+    margin: 0;
+    padding-top: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+    background-color: #4d754d;
+    justify-content: center;
+    text-align: center;
+}
+.box .col-4 {
+	width:33%;
+	padding:20px;
+	box-sizing: border-box;
+	text-align: center;
+	float: left;
+}
+.box h4{
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(7, 7, 7);
+}
+.box p{
+    color: rgb(5, 5, 5);
+}
+.col .text-center{
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    color: #080808;
+    font-weight: 500;
+    background-size: 100%;
+    background-color: #ebfcee;
+}
+
+.text{
+    font-size: 30px;
+    color: #EB984E;
+}
+
+.judul{
+    font-size: 45px;
+}
+
+.search-field {
+    width: 250px;
+    height: 50px;
+    padding:  10px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+}
+
+.card{
+    background-color: #b2d9b2 ;
+    color: black;
+}
+
+.deskripsi{
+    text-align: justify;
+}
+
+.footer-content h3{
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+}
+
+.pagination justify-content-center p-3{
+    background: transparent;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    text-align: center;
+}
+
+.tombol {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    background: #f1f1f1;
+    margin: 10px;
+    border-radius: 30%;
+    box-sizing: 0 5px 15px -5px #00000070;
+    overflow: hidden;
+    position: relative;
+    color: #d35400;
+    font-size: 40px;
+}
+
+.tombol i{
+    transition: 0.2s linear;
+    font-size: 40px;
+    line-height: 90px;
+}
+
+.tombol:hover i {
+    transform: scale(1.3);
+    color: #f1f1f1;
+}
+
+.tombol::before{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: -110%;
+    top: 90%;
+    transform: rotate(45deg);
+    background: #d35400;
+}
+
+.tombol:hover::before{
+    left: -10%;
+    top: -10%;
+    animation: aaa 0.7s 1;
+}
+
+@keyframes aaa {
+    0%{
+        left: -110%;
+        top: 90%;
+    }
+    50%{
+        left: -10%;
+        top: -30%;
+    }
+    100%{
+        left: -10%;
+        top: -10%;
+    }
+}
